@@ -11,7 +11,7 @@ precmd () {
   [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-PROMPT="%{${fg[cyan]}%}%n@${HOST} %B%{${fg[red]}%}%~ %{${fg[yellow]}%}%1v%{${reset_color}%}%b
+PROMPT="%{${fg[cyan]}%}%n %B%{${fg[red]}%}%~ %{${fg[yellow]}%}%1v%{${reset_color}%}%b
 %{${fg[green]}%}%(!.#.$)%{${reset_color}%} "
 RPROMPT=""
 
@@ -32,6 +32,8 @@ function gg() {
   git grep -n $1
 }
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.rbenv/bin:$PATH"
 export RSENSE_HOME=$HOME/.vim/ref/rsense-0.3
+export SVN_SSH="ssh -i ~/.ssh/id_rsa -p 10022"
+export GIT_EDITOR="/usr/bin/vim"
 eval "$(rbenv init -)"
